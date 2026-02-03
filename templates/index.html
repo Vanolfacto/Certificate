@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sertifikati</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Lanac Sertifikata</h1>
+    <a href="/add">Dodaj novi sertifikat</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Ime Studenta</th>
+            <th>Kurs</th>
+            <th>Datum</th>
+            <th>Prethodni Hash</th>
+            <th>Hash</th>
+            <th>PDF</th>
+        </tr>
+        {% for s in sertifikati %}
+        <tr>
+            <td>{{ s[0] }}</td>
+            <td>{{ s[1] }}</td>
+            <td>{{ s[2] }}</td>
+            <td>{{ s[3] }}</td>
+            <td>{{ s[4] }}</td>
+            <td>{{ s[5] }}</td>
+            <td><a href="/generate_pdf/{{ s[0] }}">Preuzmi PDF</a> | <a href="/provera">Proveri integritet lanca</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
